@@ -22,6 +22,12 @@
         <div class="col-md-2">
         <!--Sidebar content-->
         Search: <input type="search" ng-model="query" >
+        Sort by: <select ng-model="phoneli.orderProp">
+          <option value="name">Alphabetical</option>
+          <option value="age">
+            Newest
+          </option>
+        </select>
         </div>
         <!-- the data that a user types into the input box (named query) is immediately available as a filter input in the list repeater (phone in phones | filter:query) -->
 
@@ -29,14 +35,17 @@
         <!-- Body content  -->
         <!-- Προσθήκη 3 κινητών με δυναμικό τρόπο  -->
         <ul>
-          <li ng-repeat="phone in phoneli.phones | filter:query"> <!--Μέσω της directive ng-repeat έχουμε πρόσβαση στα περιεχόμενα του controller PhoneListCtrl. Η directive αυτή θα εκτελεστεί για όλα τα στοιχεία του πίνακα phones που ορίσαμε στον controller και θα δημιουργήσει ισάριθμα αντικείμενα μέσω της $scope. Υλοποίηση = phoneli.phones-->
+          <li ng-repeat="phone in phoneli.phones | filter:query | orderBy:phoneli.orderProp"> <!--Μέσω της directive ng-repeat έχουμε πρόσβαση στα περιεχόμενα του controller PhoneListCtrl. Η directive αυτή θα εκτελεστεί για όλα τα στοιχεία του πίνακα phones που ορίσαμε στον controller και θα δημιουργήσει ισάριθμα αντικείμενα μέσω της $scope. Υλοποίηση = phoneli.phones-->
             <span>{{phone.name}}</span>
             <p>{{phone.snippet}}</p>
           </li>
         </ul>
         </div>
         <!--Δυναμική απεικόνιση του μήκους του πίνακα phones με χρήση της .length -->
-        <p>Total number of phones: {{phoneli.phones.length}}</p>
+
+          <span>Total number of phones: {{phoneli.phones.length}}</span>
+
+
     </div>
   </div>
 
