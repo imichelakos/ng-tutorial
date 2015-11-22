@@ -3,3 +3,7 @@
 body {
   padding: 20px 20px 20px 20px;
 }
+/*ng-cloak implementation*/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
