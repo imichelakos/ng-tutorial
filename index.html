@@ -13,15 +13,32 @@
   I don't have to do this with controller as, unless I need it for some other reason (like $broadcast or watches, though I try to avoid watches in the controller).
   This is another reason I prefer Controller As: I like knowing that I only inject $scope explicitly if I need something besides data binding.
   Listening for a broadcast message is one example. A watch is yet another, though I try to avoid watches in controllers.-->
-    <!-- Προσθήκη 3 κινητών με δυναμικό τρόπο  -->
-    <ul>
-      <li ng-repeat="phone in phoneli.phones"> <!--Μέσω της directive ng-repeat έχουμε πρόσβαση στα περιεχόμενα του controller PhoneListCtrl. Η directive αυτή θα εκτελεστεί για όλα τα στοιχεία του πίνακα phones που ορίσαμε στον controller και θα δημιουργήσει ισάριθμα αντικείμενα μέσω της $scope. Υλοποίηση = phoneli.phones-->
-        <span>{{phone.name}}</span>
-        <p>{{phone.snippet}}</p>
-      </li>
+  <!--The ngCloak directive is used to prevent the Angular html template from being briefly displayed by the browser in its raw (uncompiled) form while your application is loading. Use this directive to avoid the undesirable flicker effect caused by the html template display. -->
 
-    </ul>
-    <p>Total number of phones: {{phoneli.phones.length}}</p> <!--Δυναμική απεικόνιση του μήκους του πίνακα phones με χρήση της .length -->
+    <div class="container-fluid">
+      <!-- Use .container for a responsive fixed width container. -->
+      <!-- Use .container-fluid for a full width container, spanning the entire width of your viewport. -->
+      <div class="row">
+        <div class="col-md-2">
+        <!--Sidebar content-->
+        Search: <input type="search" ng-model="query" >
+        </div>
+        <!-- the data that a user types into the input box (named query) is immediately available as a filter input in the list repeater (phone in phones | filter:query) -->
+
+        <div class="col-md-10">
+        <!-- Body content  -->
+        <!-- Προσθήκη 3 κινητών με δυναμικό τρόπο  -->
+        <ul>
+          <li ng-repeat="phone in phoneli.phones | filter:query"> <!--Μέσω της directive ng-repeat έχουμε πρόσβαση στα περιεχόμενα του controller PhoneListCtrl. Η directive αυτή θα εκτελεστεί για όλα τα στοιχεία του πίνακα phones που ορίσαμε στον controller και θα δημιουργήσει ισάριθμα αντικείμενα μέσω της $scope. Υλοποίηση = phoneli.phones-->
+            <span>{{phone.name}}</span>
+            <p>{{phone.snippet}}</p>
+          </li>
+        </ul>
+        </div>
+        <!--Δυναμική απεικόνιση του μήκους του πίνακα phones με χρήση της .length -->
+        <p>Total number of phones: {{phoneli.phones.length}}</p>
+    </div>
+  </div>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular.min.js"></script>
