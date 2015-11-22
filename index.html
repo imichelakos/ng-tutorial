@@ -33,10 +33,15 @@
 
         <div class="col-md-10">
         <!-- Body content  -->
-        <!-- Προσθήκη 3 κινητών με δυναμικό τρόπο  -->
-        <ul>
-          <li ng-repeat="phone in phoneli.phones | filter:query | orderBy:phoneli.orderProp"> <!--Μέσω της directive ng-repeat έχουμε πρόσβαση στα περιεχόμενα του controller PhoneListCtrl. Η directive αυτή θα εκτελεστεί για όλα τα στοιχεία του πίνακα phones που ορίσαμε στον controller και θα δημιουργήσει ισάριθμα αντικείμενα μέσω της $scope. Υλοποίηση = phoneli.phones-->
-            <span>{{phone.name}}</span>
+        <!-- Προσθήκη κινητών από αρχείο json -->
+        <ul class="phones">
+          <li ng-repeat="phone in phoneli.phones | filter:query | orderBy:phoneli.orderProp" class="thumbnail"> <!-- bootstrap class -->
+            <a href="#/phones/{{phone.id}}" class="thumb">
+              <img ng-src="{{phone.imageUrl}}"/>
+            </a>
+            <a href="#/phones/{{phone.id}}">
+              {{phone.name}}
+            </a>
             <p>{{phone.snippet}}</p>
           </li>
         </ul>

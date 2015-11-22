@@ -1,8 +1,28 @@
 /* app css stylesheet */
 
 body {
-  padding: 20px 20px 20px 20px;
+  padding-top: 20px;
 }
+
+.phones {
+  list-style: none; /*No marker is shown*/
+}
+
+.thumb {
+  float: left;
+  margin: -0.5em 1em 1.5em 0;
+  padding-bottom: 1em;
+  height: 100px;
+  width: 100px;
+}
+
+.phones li {
+  clear: both; /*No floating elements allowed on the left or the right side of the specified element:*/
+  height: 115px;
+  padding-top: 15px;
+}
+
+
 /*ng-cloak implementation*/
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
