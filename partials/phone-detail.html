@@ -1,6 +1,6 @@
 <!-- TBD: detail view for <span>{{phonedet.phoneId}}</span> -->
 
-<img ng-src="{{phonedet.phone.images[0]}}" class="phone">
+<img ng-src="{{phonedet.mainImageUrl}}" class="phone">
 
 <h1>{{phonedet.phone.name}}</h1>
 
@@ -8,9 +8,9 @@
 
 <ul class="phone-thumbs">
   <li ng-repeat="image in phonedet.phone.images">
-    <img ng-src="{{image}}"  />
+    <img ng-src="{{image}}" ng-click="phonedet.setImage(image)" />
   </li>
-</ul>
+</ul><!--update image using ng-click -->
 
 <ul class="specs">
   <li>

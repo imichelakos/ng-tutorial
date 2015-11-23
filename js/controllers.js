@@ -23,15 +23,22 @@
     this.orderProp='age';
   }]);
 
-  // Επέκταση του controller
   phonecatControllers.controller('PhoneDetailCtrl',['$routeParams','$http',function ($routeParams,$http) {
     // body...
     var vm=this;
-    // Χρήση της $http όπως και στον παραπάνω controller για να τραβήξουμε τα στοιχεία json
+
     $http.get('phones/'+$routeParams.phoneId+'.json')
       .success(function (data) {
         // body...
         vm.phone = data;
+        vm.mainImageUrl = data.images[0];
+        // νέα μεταβλητή
+
+        //συνάρτηση για να αλλάζει η βασική εικόνα
+        vm.setImage=function (imageUrl) {
+          // body...
+          vm.mainImageUrl = imageUrl;
+        };
       });
   }]);
 

@@ -1,7 +1,8 @@
 "use strict";
+// Custom Filters
 
 (function () {
-  // body...
+  // body...wrapping
   angular.module('phonecatFilters',[])
     .filter('checkmark',function () {
       // body...
