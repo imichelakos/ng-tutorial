@@ -5,57 +5,21 @@
     <meta charset="utf-8">
     <title>Local webserver - Google Phone Gallery</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="css/app.css">
   </head>
-  <body ng-controller="PhoneListCtrl as phoneli" ng-cloak> <!-- The ngController directive, references the name of our controller, PhoneListCtrl (located in the JavaScript file controllers.js). Η προσθήκη as αλλάζει την τεχνική του injection.
-  $scope I do need to inject $scope into the controller.
-  I don't have to do this with controller as, unless I need it for some other reason (like $broadcast or watches, though I try to avoid watches in the controller).
-  This is another reason I prefer Controller As: I like knowing that I only inject $scope explicitly if I need something besides data binding.
-  Listening for a broadcast message is one example. A watch is yet another, though I try to avoid watches in controllers.-->
-  <!--The ngCloak directive is used to prevent the Angular html template from being briefly displayed by the browser in its raw (uncompiled) form while your application is loading. Use this directive to avoid the undesirable flicker effect caused by the html template display. -->
+  <body ng-cloak>
 
-    <div class="container-fluid">
-      <!-- Use .container for a responsive fixed width container. -->
-      <!-- Use .container-fluid for a full width container, spanning the entire width of your viewport. -->
-      <div class="row">
-        <div class="col-md-2">
-        <!--Sidebar content-->
-        Search: <input type="search" ng-model="query" >
-        Sort by: <select ng-model="phoneli.orderProp">
-          <option value="name">Alphabetical</option>
-          <option value="age">
-            Newest
-          </option>
-        </select>
-        </div>
-        <!-- the data that a user types into the input box (named query) is immediately available as a filter input in the list repeater (phone in phones | filter:query) -->
+    <div ng-view></div>
 
-        <div class="col-md-10">
-        <!-- Body content  -->
-        <!-- Προσθήκη κινητών από αρχείο json -->
-        <ul class="phones">
-          <li ng-repeat="phone in phoneli.phones | filter:query | orderBy:phoneli.orderProp" class="thumbnail"> <!-- bootstrap class -->
-            <a href="#/phones/{{phone.id}}" class="thumb">
-              <img ng-src="{{phone.imageUrl}}"/>
-            </a>
-            <a href="#/phones/{{phone.id}}">
-              {{phone.name}}
-            </a>
-            <p>{{phone.snippet}}</p>
-          </li>
-        </ul>
-        </div>
-        <!--Δυναμική απεικόνιση του μήκους του πίνακα phones με χρήση της .length -->
-
-          <span>Total number of phones: {{phoneli.phones.length}}</span>
-
-
-    </div>
-  </div>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular.min.js"></script>
-    <script src="js/controllers.js"></script> <!-- Προσθήκη του συνδέσμου για την σύνδεση - φόρτωση του controller -->
+    <script src="bower_components/angular/angular.js"></script>
+
+    <!-- προσθήκη του ngRoute -->
+   <script src="bower_components/angular-route/angular-route.js"></script>
+    <!-- Σύνδεση των απαραίτητων js files -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
   </body>
 </html>

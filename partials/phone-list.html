@@ -1,0 +1,36 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-md-2">
+    <!--Sidebar content-->
+    Search: <input type="search" ng-model="query" >
+    Sort by: <select ng-model="phoneli.orderProp">
+      <option value="name">Alphabetical</option>
+      <option value="age">
+        Newest
+      </option>
+    </select>
+    </div>
+    
+    <div class="col-md-10">
+    <!-- Body content  -->
+    <!-- Προσθήκη κινητών από αρχείο json -->
+    <ul class="phones">
+      <li ng-repeat="phone in phoneli.phones | filter:query | orderBy:phoneli.orderProp" class="thumbnail"> <!-- bootstrap class -->
+        <a href="#/phones/{{phone.id}}" class="thumb">
+          <img ng-src="{{phone.imageUrl}}"/>
+        </a>
+        <a href="#/phones/{{phone.id}}">
+          {{phone.name}}
+        </a>
+        <p>{{phone.snippet}}</p>
+      </li>
+    </ul>
+    </div>
+    <!--Δυναμική απεικόνιση του μήκους του πίνακα phones με χρήση της .length -->
+
+      <span>Total number of phones: {{phoneli.phones.length}}</span>
+
+
+</div>
+</div>

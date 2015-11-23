@@ -1,15 +1,15 @@
-"use strict"; /*Strict mode makes it easier to write "secure" JavaScript.Strict mode changes previously accepted "bad syntax" into real errors.*/
+"use strict";
 
 // Controllers are where we define our app’s behavior by defining functions and values.
 
 (function () {
   // body...Wrapping your Javascript in a closure is a good habit!
 
-  var phonecatApp = angular.module('phonecatApp',[]);
-  // We'll use Angular's $http service in our controller to make an HTTP request to your web server to fetch the data in the app/phones/phones.json file
+  var phonecatControllers = angular.module('phonecatControllers',[]);
+  // αλλαγή ονόματος module μιας και το phonecatApp θα το πάρει το κύριο module.
 
-  phonecatApp.controller('PhoneListCtrl',['$http',function ($http) {
-    // $http returns a Promise, so success gets the data
+  phonecatControllers.controller('PhoneListCtrl',['$http',function ($http) {
+    // αλλαγή του ονόματος του module
     var vm=this; //Δεν μπορούμε μέσα στο success να χρησιμοποιήσουμε το this.
     $http.get('phones/phones.json')
       .success(
@@ -22,4 +22,12 @@
     // sets the default value of orderProp to age
     this.orderProp='age';
   }]);
+
+  // Οριμός νέου controller
+  phonecatControllers.controller('PhoneDetailCtrl',['$routeParams',function ($routeParams) {
+    // body...
+    var vm=this;
+    vm.phoneId = $routeParams.phoneId;
+  }]);
+
 })();
