@@ -4,9 +4,9 @@
   // body...Wrapping your Javascript in a closure is a good habit!
 
   // Κύριο Module εφαρμογής
-  var phonecatApp = angular.module('phonecatApp',['ngRoute','phonecatControllers'
+  var phonecatApp = angular.module('phonecatApp',['ngRoute','phonecatControllers','phonecatFilters'
   ]);
-
+  //προσθήκη νέας απαίτησης
   // Routes
   phonecatApp.config(['$routeProvider',
     function ($routeProvider) {
