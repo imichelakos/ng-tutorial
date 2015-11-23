@@ -23,11 +23,16 @@
     this.orderProp='age';
   }]);
 
-  // Οριμός νέου controller
-  phonecatControllers.controller('PhoneDetailCtrl',['$routeParams',function ($routeParams) {
+  // Επέκταση του controller
+  phonecatControllers.controller('PhoneDetailCtrl',['$routeParams','$http',function ($routeParams,$http) {
     // body...
     var vm=this;
-    vm.phoneId = $routeParams.phoneId;
+    // Χρήση της $http όπως και στον παραπάνω controller για να τραβήξουμε τα στοιχεία json
+    $http.get('phones/'+$routeParams.phoneId+'.json')
+      .success(function (data) {
+        // body...
+        vm.phone = data;
+      });
   }]);
 
 })();

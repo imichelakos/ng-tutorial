@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- The ng-app attribute represents an Angular directive named ngApp. This directive is used to flag the html element that Angular should consider to be the root element of our application. This gives application developers the freedom to tell Angular if the entire html page or only a portion of it should be treated as the Angular application. -->
+
 <html ng-app="phonecatApp"><!-- our ng-app directive now specifies the phonecatApp module name as the module to load when bootstrapping the Angular application -->
   <head>
     <meta charset="utf-8">
@@ -7,15 +7,14 @@
     <!-- CSS -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="css/app.css">
+    <!-- Μεταφέρθηκε locally -->
   </head>
   <body ng-cloak>
-
+    <!-- removed most of the code in the index.html template and replaced it with a single line containing a div with the ng-view attribute -->
     <div ng-view></div>
-
 
     <!-- Scripts -->
     <script src="bower_components/angular/angular.js"></script>
-
     <!-- προσθήκη του ngRoute -->
    <script src="bower_components/angular-route/angular-route.js"></script>
     <!-- Σύνδεση των απαραίτητων js files -->
