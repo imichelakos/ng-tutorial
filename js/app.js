@@ -1,13 +1,13 @@
-"use strict";
-
 (function () {
-  // body...Wrapping your Javascript in a closure is a good habit!
 
-  // Κύριο Module εφαρμογής
-  var phonecatApp = angular.module('phonecatApp',['ngRoute','phonecatControllers','phonecatFilters','phonecatServices'
+  var phonecatApp = angular.module('phonecatApp',[
+    'ngRoute',
+    'phonecatAnimations',
+    'phonecatControllers',
+    'phonecatFilters',
+    'phonecatServices'
   ]);
-  //προσθήκη νέας απαίτησης
-  // Routes
+
   phonecatApp.config(['$routeProvider',
     function ($routeProvider) {
       // body...
@@ -26,5 +26,4 @@
           redirectTo: '/phones'
         });
     }]);
-
 })();

@@ -1,22 +1,23 @@
-<!-- TBD: detail view for <span>{{phonedet.phoneId}}</span> -->
-
-<img ng-src="{{phonedet.mainImageUrl}}" class="phone">
+<div class="phone-images">
+  <img ng-src="{{img}}"
+  class="phone"
+  ng-repeat="img in phonedet.phone.images"
+  ng-class="{active: phonedet.mainImageUrl==img}">
+</div>
 
 <h1>{{phonedet.phone.name}}</h1>
 
 <p>{{phonedet.phone.description}}</p>
 
 <ul class="phone-thumbs">
-  <li ng-repeat="image in phonedet.phone.images">
-    <img ng-src="{{image}}" ng-click="phonedet.setImage(image)" />
+  <li ng-repeat="img in phonedet.phone.images">
+    <img ng-src="{{img}}" ng-click="phonedet.setImage(img)" />
   </li>
-</ul><!--update image using ng-click -->
+</ul>
 
 <ul class="specs">
   <li>
     <span>Availability and Networks</span>
-    <!-- The <dl> tag defines a description list.
-    The <dl> tag is used in conjunction with <dt> (defines terms/names) and <dd> (describes each term/name). -->
     <dl>
       <dt>Availability</dt>
       <dd ng-repeat="availability in phonedet.phone.availability">{{availability}}</dd>

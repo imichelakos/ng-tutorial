@@ -4,8 +4,18 @@ body {
   padding-top: 20px;
 }
 
+
+.phone-images {
+  background-color: white;
+  width: 450px;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  float: left;
+}
+
 .phones {
-  list-style: none; /*No marker is shown*/
+  list-style: none;
 }
 
 .thumb {
@@ -17,23 +27,29 @@ body {
 }
 
 .phones li {
-  clear: both; /*No floating elements allowed on the left or the right side of the specified element:*/
+  clear: both;
   height: 115px;
   padding-top: 15px;
 }
 
-/** Detail View**/
-img.phone{
+/** Detail View **/
+img.phone {
   float: left;
-  border: 1px solid black;
-  margin: 0 3em 2em 0;
-  padding: 2em;
+  margin-right: 3em;
+  margin-bottom: 2em;
   background-color: white;
+  padding: 2em;
   height: 400px;
   width: 400px;
+  display: none;
 }
 
-ul.phone-thumbs{
+img.phone:first-child {
+  display: block;
+}
+
+
+ul.phone-thumbs {
   margin: 0;
   list-style: none;
 }
@@ -50,6 +66,11 @@ ul.phone-thumbs img {
   width: 100px;
   padding: 1em;
 }
+
+ul.phone-thumbs img:hover {
+  cursor: pointer;
+}
+
 
 ul.specs {
   clear: both;
@@ -75,27 +96,4 @@ ul.specs dt {
 
 h1 {
   border-bottom: 1px solid gray;
-}
-
-ul.phone-thumbs img:hover{
-  cursor:pointer;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*ng-cloak implementation*/
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
 }
